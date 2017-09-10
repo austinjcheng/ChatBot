@@ -2,6 +2,7 @@ import string
 from Read import getUser, getMessage
 from Socket import openSocket, sendMessage
 from Initialize import joinRoom
+from time import sleep
 
 s = openSocket()
 joinRoom(s)
@@ -20,7 +21,47 @@ while True:
 			user = getUser(line)
 			message = getMessage(line)
 			print user + " typed :" + message
-			if "You Suck" in message:
+
+			#commmandFile = open("command.txt", 'r')
+			#for line in commandFile:
+			#	if line in message:
+
+			if "!commands" in message.lower():
+				sendMessage(s, "austin, pyramid")
+				break
+
+			if "!austin" in message.lower():
+				sendMessage(s, "I love you, " + user)
+				break
+
+			if "you suck" in message.lower():
 				sendMessage(s, "No, you suck!")
 				break
 			
+			if "!pyramid" in message.lower():
+				sendMessage(s, "Kappa")
+				sleep(0.5)
+				sendMessage(s, "Kappa Kappa")
+				sleep(0.5)
+				sendMessage(s, "Kappa Kappa Kappa")
+				sleep(0.5)
+				sendMessage(s, "Kappa Kappa")
+				sleep(0.5)
+				sendMessage(s, "Kappa")
+				break
+
+			if "PogChamp" in message:
+				sendMessage(s, "PogChamp")
+				break
+
+			if "FeelsBadMan" in message:
+				sendMessage(s, "FeelsGoodMan !")
+				break
+
+			if "TriHard" in message:
+				sendMessage(s, "cmonBruh")
+				break
+
+			if "monkaS" in message:
+				sendMessage(s, "don't overuse monkas monkaS")
+				break
